@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+	</head>
+<body>
+	<h1>Student table</h1>
+
+	<table class="table table-striped">
+		<thead>
+			<tr th:if="${allstudent}">
+				<th scope="col">id.</th>
+				<th scope="col">name</th>
+				<th scope="col">faculty</th>
+				<th scope="col">section</th>
+			</tr>
+		</thead>
+		<tbody th:if="${allstudent}">
+			<tr th:each="data : ${allstudent}">
+				<td th:text="${data.getId()}">Mark</td>
+				<td th:text="${data.getStudentName()}">Mark</td>
+				<td th:text="${data.getFaculty()}">Otto</td>
+				<td th:text="${data.getSection()}">Otto</td>
+			</tr>
+		</tbody>
+	</table>
+	<br/>
+	<br/>
+	<br/>
+	<h1>attandance table</h1>
+	<table class="table table-striped">
+		<thead>
+			<tr th:if="${attandance}">
+				<th scope="col">sn .</th>
+				<th scope="col">name</th>
+				<th scope="col">month</th>
+				<th scope="col">year</th>
+				<th scope="col">present_day</th>
+			</tr>
+		</thead>
+		<tbody th:if="${attandance}">
+			<tr th:each="data,stat : ${attandance}">
+				<th scope="row" th:text="${stat.index + 1}">1</th>
+				<td th:text="${data.getStudent().getStudentName() + '-'+data.getStudent().getId()}">Mark</td>
+				<td th:text="${data.getMonth()}">Mark</td>
+				<td th:text="${data.getYear()}">Otto</td>
+				<td th:text="${data.getPresentDays()}">Otto</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

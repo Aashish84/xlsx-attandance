@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<h1 class="text-center p-4">hello from index</h1>
+		<form method="post" action="/addtest" enctype="multipart/form-data">
+			<div class="col-3 m-auto">
+			<label for="formFileLg" class="form-label">Only xlsx file</label>
+			<input class="form-control form-control-lg" id="formFileLg" type="file" name="file"/>
+			<input type="submit" class="btn btn-primary mt-2"/>
+			</div>
+		</form>
+	</body>
+</html>
